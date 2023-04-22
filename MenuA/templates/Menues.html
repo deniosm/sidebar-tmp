@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang=”en”>
+ <head>
+ <meta charset=”utf-8">
+ <img src="{% static 'img/logo.png' %}" alt="logo">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<body>
+<div class="sidenav">
+<div class="side_logo"><img src="{% static 'img/logo.png' %}" alt="logo"></div>
+	<div class="main_menu">
+		<div class="main_menu_a">
+		{% for menu in menues %}
+			<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
+		{% endfor %}
+		</div">
+		<div class="main_menu_b">
+            <li><a href="/rjecnik">Rječnik</a>
+            <li><a href="/kontakt">Kontakt</a>
+            <li><a href="/impressum">Impressum</a>
+            <li><a href="/kako-koristiti-coolinariku">Kako koristiti Coolinariku</a>
+            <li><a href="/pravila-zastite-privatnosti">Pravila zaštite privatnosti</a>
+            <li><a href="/pravila-o-kolacicima">Pravila o kolačićima </a>
+            <li><a href="/uvjeti-koristenja">Uvjeti korištenja</a>
+       </div>
+	</div>
+</div>
+<button class="btn-profile"><i class="fa fa-user-circle-o"></i> Moj profil</button>
+</body>
+</html>

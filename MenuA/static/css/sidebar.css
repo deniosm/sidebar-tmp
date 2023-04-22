@@ -1,0 +1,147 @@
+*{
+    margin:0;
+    padding:0;
+}
+:root{
+    --primary-color:#FE000c;
+    --secondary-color: #BCBDC0;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px grey;
+    border-radius: 2px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 2px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+  }
+.sidenav {
+    display: block;
+	height:100%;
+	width:20%;
+    right: 80%;
+    position: fixed;
+    z-index:1;
+    top:0;
+    left:0;
+    background-color:white;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border-bottom-width: thick;
+    border-top: solid red;
+}
+.side_logo {
+    position: relative;
+    display: block;
+    top:0;
+    height: 12%;
+    margin-left: 4%;
+    margin-right: 10%;
+    margin-top:4%;
+}
+@media only screen and (max-width: 870px) {
+	.sidenav {
+	display: none;
+    }
+}
+
+@media only screen and (min-width: 871px) {
+	.sidenav {
+	display: block;
+	}
+}
+.main_menu {
+    width: 100%;
+    overflow-y: scroll;
+    position: relative;
+    display: block;
+    height: 75%;
+    margin-top: 15%;
+}
+.main_menu_a {
+    background-color: white;
+    border-bottom:1px solid grey;
+    padding: 5%;
+    top:12%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.main_menu_a li {
+    list-style: none;
+    text-decoration: none;
+    font-size: normal;
+    margin-top: 1%;
+}
+.main_menu_a li a  {
+    text-decoration: none;
+    padding: 1%;
+    margin:1%;
+    font-weight: bold;
+    font-size: normal;
+    color: black;
+}
+.main_menu_a a.active {
+    color:#ff0000;
+}
+.main_menu_a a:hover {
+    color:red;
+}
+.fa {
+    font-size: large;
+    margin: 4%;
+}
+.main_menu_b {
+    display: block;
+    background-color: white;
+    padding: 5%;
+    margin-right: 5%;
+}
+.main_menu_b li {
+    list-style: none;
+    text-decoration: none;
+    font-size: normal;
+    margin-top: 1%;
+    padding-right: 5%;
+}
+.main_menu_b li a  {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: normal;
+    color: black;
+    padding: 1%;
+    margin-top: 2%;
+}
+.main_menu_b a.active {
+    color:#ff0000;
+}
+.main_menu_b a:hover {
+    color:#ff0000;
+}
+.profil-btn {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 0;
+  font-size: x-large;
+  text-align: center;
+  cursor: pointer;
+  left: 0;
+  right: 82%;
+  bottom:0;
+  position: fixed;
+  width: 18%;
+  height:10%;
+  font-weight: bold;
+}
