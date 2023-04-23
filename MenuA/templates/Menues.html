@@ -12,15 +12,15 @@
     <div class="side_logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="logo"></a></div>
     <div class="main_menu">
         <div class="main_menu_a">
-        	{% for menu in menues|slice:":8" %}
-				<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-			{% endfor %}
+		{% for menu in menues|slice:":8" %}
+			<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
+		{% endfor %}
         </div>
         <div class="main_menu_b">
             {% for menu in menues %}
-				{% if forloop.counter >= 9 and forloop.counter < 18 %}
-					<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-				{% endif %}
+		{% if forloop.counter >= 9 and forloop.counter < 18 %}
+			<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
+		{% endif %}
             {% endfor %}
         </div>
     </div>
