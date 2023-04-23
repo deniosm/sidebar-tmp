@@ -2,13 +2,11 @@ from django.shortcuts import render, redirect  # For Render and Redireting to Fu
 from .models import Menu
 from .forms import MenuForm
 
-
 # Create your views here.
 def MenuList(request):
     menu = Menu.objects.all();  # Create Object of Menu Class Model
     params = {'menues': menu}  # Create Parameter to Send To View
     return render(request, 'Menues.html', params)  # Return Menues To The Html Page
-
 
 def CreateMenu(request):
     form = MenuForm(request.POST or None)
@@ -36,3 +34,74 @@ def DeleteMenu(request, id):
 
 def Search(request,text):
     menu=Menu.objects.filter()
+
+################################# Views for tests
+def Naslovnica(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Naslovnica.html', params)  # Return Menues To The Html Page
+
+def Inspiracija(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Inspiracija.html', params)  # Return Menues To The Html Page
+
+def Recepti(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Recepti.html', params)  # Return Menues To The Html Page
+
+def Jela(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Jela.html', params)  # Return Menues To The Html Page
+
+def Namirnice(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Namirnice.html', params)  # Return Menues To The Html Page
+
+def Slike(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Slike.html', params)  # Return Menues To The Html Page
+
+def Ljudi(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Ljudi.html', params)  # Return Menues To The Html Page
+
+def Rjecnik(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Rjecnik.html', params)  # Return Menues To The Html Page
+
+def Kontakt(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Kontakt.html', params)  # Return Menues To The Html Page
+
+def Impressum(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'Impressum.html', params)  # Return Menues To The Html Page
+
+def KakoKoristitiCoolinariku(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'KakoKoristitiCoolinariku.html', params)  # Return Menues To The Html Page
+
+def PravilaZastitePrivatnosti(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'PravilaZastitePrivatnosti.html', params)  # Return Menues To The Html Page
+
+def PravilaOkolacicima(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'PravilaOkolacicima.html', params)  # Return Menues To The Html Page
+
+def UvjetiKoristenja(request):
+    menu = Menu.objects.all();  # Create Object of Menu Class Model
+    params = {'menues': menu}  # Create Parameter to Send To View
+    return render(request, 'UvjetiKoristenja.html', params)  # Return Menues To The Html Page
