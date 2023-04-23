@@ -17,79 +17,81 @@
     font-size: small;
     margin-left: 8%;
 }
+.dropdown-menu li a.active {
+    background-color: red;
+}
 </style>
 <body>
 <div class="sidenav">
-    <div class="side_logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="logo"></a></div>
+    <div class="side_logo">
+        <a href="/">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
+        </a>
+    </div>
     <div class="main_menu">
         <div class="main_menu_a">
-			{% for menu in menues|slice:":9" %}
-				{% if forloop.counter == 3 %}
-					<li><a href="{{ menu.menutitle }}" onclick="showDropdown(event, 'dropdown-menu-1')"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-					<div class="dropdown-menu hidden" id="dropdown-menu-1">
-						{% for menu in menues %}
-							{% if menu.id >= 16 and menu.id <= 18 %}
-								<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-							{% endif %}
-						{% endfor %}
-					</div>
-				{% elif forloop.counter == 4 %}
-					<li><a href="{{ menu.menutitle }}" onclick="showDropdown(event, 'dropdown-menu-2')"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-					<div class="dropdown-menu hidden" id="dropdown-menu-2">
-						{% for menu in menues %}
-							{% if menu.id >= 19 and menu.id <= 24 %}
-								<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-							{% endif %}
-						{% endfor %}
-					</div>
-				{% elif forloop.counter == 7 %}
-					<li><a href="{{ menu.menutitle }}" onclick="showDropdown(event, 'dropdown-menu-3')"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-					<div class="dropdown-menu hidden" id="dropdown-menu-3">
-						{% for menu in menues %}
-							{% if menu.id >= 25 and menu.id <= 26 %}
-								<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-							{% endif %}
-						{% endfor %}
-					</div>
-				{% elif forloop.counter == 8 %}
-					<li><a href="{{ menu.menutitle }}" onclick="showDropdown(event, 'dropdown-menu-4')"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-					<div class="dropdown-menu hidden" id="dropdown-menu-4">
-						{% for menu in menues %}
-							{% if menu.id >= 26 and menu.id <= 35 %}
-								<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-							{% endif %}
-						{% endfor %}
-					</div>
-				{% elif forloop.counter == 9 %}
-					<li><a href="{{ menu.menutitle }}" onclick="showDropdown(event, 'dropdown-menu-6')"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-					<div class="dropdown-menu hidden" id="dropdown-menu-6">
-						{% for menu in menues %}
-							{% if menu.id >= 36 and menu.id <= 37 %}
-								<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-							{% endif %}
-						{% endfor %}
-					</div>
-				{% else %}
-					<li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-				{% endif %}
-			{% endfor %}
+            {% for menu in menues|slice:":9" %}
+                {% if forloop.counter == 3 %}
+                    <li>
+                        <a href="{{ menu.menutitle }}" id="dropdown-menu-1-anchor" onclick="toggleDropdown(event, 'dropdown-menu-1')">
+                            <i class="{{menu.icon}}"></i>{{menu.mymenu}}
+                        </a>
+                    </li>
+                    <div class="dropdown-menu hidden" id="dropdown-menu-1">
+                        {% for menu in menues %}
+                            {% if menu.id >= 16 and menu.id <= 18 %}
+                                <li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% elif forloop.counter == 4 %}
+                    <li>
+                        <a href="{{ menu.menutitle }}" id="dropdown-menu-2-anchor" onclick="toggleDropdown(event, 'dropdown-menu-2')">
+                            <i class="{{menu.icon}}"></i>{{menu.mymenu}}
+                        </a>
+                    </li>
+                    <div class="dropdown-menu hidden" id="dropdown-menu-2">
+                        {% for menu in menues %}
+                            {% if menu.id >= 19 and menu.id <= 24 %}
+                                <li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <li>
+                        <a href="{{ menu.menutitle }}">
+                            <i class="{{menu.icon}}"></i>{{menu.mymenu}}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="main_menu_b">
             {% for menu in menues %}
                 {% if forloop.counter >= 10 and forloop.counter < 17 %}
-                    <li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
+                    <li>
+                        <a href="{{ menu.menutitle }}">
+                            <i class="{{menu.icon}}"></i>{{menu.mymenu}}
+                        </a>
+                    </li>
                 {% endif %}
             {% endfor %}
         </div>
     </div>
-    <div class="profil-btn"><a href="/profil"><i class="fa fa-user-circle-o"></i> Moj profil</a></div>
+    <div class="profil-btn">
+        <a href="/profil">
+            <i class="fa fa-user-circle-o"></i> Moj profil
+        </a>
+    </div>
 </div>
 <script>
-    function showDropdown(event, menuId) {
+    function toggleDropdown(event, menuId) {
         event.preventDefault();
         const dropdown = document.querySelector(`#${menuId}`);
         dropdown.classList.toggle('hidden');
+        if (!dropdown.classList.contains('hidden')) {
+            window.location.href = event.target.href;
+        }
     }
 </script>
-</body>
 </html>
