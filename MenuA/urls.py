@@ -23,4 +23,5 @@ urlpatterns=[
 	path('pravila-zastite-privatnosti/', MenuList, name='PravilaZastitePrivatnosti'),
 	path('pravila-o-kolacicima/', MenuList, name='PravilaOkolacicima'),
 	path('uvjeti-koristenja/', MenuList, name='UvjetiKoristenja'),
+	path('moj-profil/', MenuList, name='MojProfil'),
 ]

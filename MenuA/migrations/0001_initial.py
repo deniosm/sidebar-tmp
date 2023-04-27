@@ -13,9 +13,12 @@ class Migration(migrations.Migration):
             name='Menu',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('menutitle', models.CharField(max_length=50)),
-                ('mymenu', models.CharField(max_length=50)),
+                ('menuid', models.CharField(max_length=15)),
+                ('url', models.CharField(max_length=50)),
+                ('title', models.CharField(max_length=50)),
                 ('icon', models.CharField(max_length=50)),
+                ('logo', models.CharField(max_length=50)),
+                ('avatar', models.CharField(max_length=50)),
             ],
         ),
     ]

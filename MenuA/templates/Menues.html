@@ -2,96 +2,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Coolinarika</title>
-    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <img src="{% static 'img/logo.png' %}" alt="logo">
+<meta charset="utf-8">
+<title>Coolinarika</title>
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<img src="{% static 'img/' %}" alt="logo">
 </head>
-<style>
-.dropdown-menu.hidden {
-	display: none;
-}
-.dropdown-menu li a {
-    background-color: white;
-    font-size: small;
-    margin-left: 8%;
-}
-.dropdown-menu li a.active {
-    background-color: red;
-}
-</style>
 <body>
-<div class="sidenav">
-    <div class="side_logo">
-        <a href="/">
-            <img src="{% static 'img/logo.png' %}" alt="logo">
-        </a>
+<div class="sidebar">
+    <div class="logo">
+		{% for menu in menues %}
+			{% if menu.menuid == "logo" %}
+				<a href="{{ menu.url }}">
+				    <img src="{% static menu.logo %}" alt="logo">
+				</a>
+			{% endif %}
+		{% endfor %}
     </div>
-    <div class="main_menu">
-        <div class="main_menu_a">
-            {% for menu in menues|slice:":9" %}
-                {% if forloop.counter == 3 %}
-                    <li>
-                        <a href="{{ menu.menutitle }}" id="dropdown-menu-1-anchor" onclick="toggleDropdown(event, 'dropdown-menu-1')">
-                            <i class="{{menu.icon}}"></i>{{menu.mymenu}}
-                        </a>
-                    </li>
-                    <div class="dropdown-menu hidden" id="dropdown-menu-1">
-                        {% for menu in menues %}
-                            {% if menu.id >= 16 and menu.id <= 18 %}
-                                <li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                {% elif forloop.counter == 4 %}
-                    <li>
-                        <a href="{{ menu.menutitle }}" id="dropdown-menu-2-anchor" onclick="toggleDropdown(event, 'dropdown-menu-2')">
-                            <i class="{{menu.icon}}"></i>{{menu.mymenu}}
-                        </a>
-                    </li>
-                    <div class="dropdown-menu hidden" id="dropdown-menu-2">
-                        {% for menu in menues %}
-                            {% if menu.id >= 19 and menu.id <= 24 %}
-                                <li><a href="{{ menu.menutitle }}"><i class="{{menu.icon}}"></i>{{menu.mymenu}}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <li>
-                        <a href="{{ menu.menutitle }}">
-                            <i class="{{menu.icon}}"></i>{{menu.mymenu}}
-                        </a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </div>
-        <div class="main_menu_b">
-            {% for menu in menues %}
-                {% if forloop.counter >= 10 and forloop.counter < 17 %}
-                    <li>
-                        <a href="{{ menu.menutitle }}">
-                            <i class="{{menu.icon}}"></i>{{menu.mymenu}}
-                        </a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </div>
+    <div class="menu-container">
+        {% include 'menu_list.html' %}
     </div>
-    <div class="profil-btn">
-        <a href="/profil">
-            <i class="fa fa-user-circle-o"></i> Moj profil
-        </a>
+    <div class="bottom-container">
+        {% include 'bottom_divs.html' %}
     </div>
-</div>
-<script>
-    function toggleDropdown(event, menuId) {
-        event.preventDefault();
-        const dropdown = document.querySelector(`#${menuId}`);
-        dropdown.classList.toggle('hidden');
-        if (!dropdown.classList.contains('hidden')) {
-            window.location.href = event.target.href;
-        }
+  </div>
+  <script>
+    function myFunction(x) {
+  x.classList.toggle("change");
+  document.querySelector(".overlay-menu").classList.toggle("open");
     }
 </script>
+</div>
+</body>
 </html>

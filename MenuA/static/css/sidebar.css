@@ -1,162 +1,214 @@
-.body{
-    margin: 0;
-    padding: 0;
-}
-*{
+.body {
     margin:0;
-    padding:0;
-}
-:root{
-    --primary-color:#FE000c;
-    --secondary-color: #BCBDC0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 /* width */
 ::-webkit-scrollbar {
     width: 2px;
-  }
+}
 
-  /* Track */
-  ::-webkit-scrollbar-track {
+/* Track */
+::-webkit-scrollbar-track {
     box-shadow: inset 0 0 2px grey;
     border-radius: 2px;
-  }
+}
 
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: grey;
     border-radius: 2px;
-  }
+}
 
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: grey;
-  }
-.sidenav {
-    display: block;
-	height:100%;
-	width:20%;
-    right: 80%;
+}
+/* fixed sidebar on 20% width */
+.sidebar {
     position: fixed;
-    z-index:1;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 20%;
     background-color: white;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    border-bottom-width: thick;
-    border-top: solid red;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.side_logo {
-    position: relative;
-    width: 100%;
-    top:0;
+  
+/* clickable logo on top of sidebar */
+.logo {
     height: 12%;
-    margin-left: 4%;
-    margin-right: 10%;
-}
-.side_logo img {
+    background-color: white;
     margin-top: 10%;
-    margin-left: 10%;
-}
-@media only screen and (max-width: 870px) {
-	.sidenav {
-	display: none;
-    }
-}
-
-@media only screen and (min-width: 871px) {
-	.sidenav {
-	display: block;
-	}
-}
-.main_menu {
-    width: 100%;
-    overflow-y: scroll;
-    position: relative;
-    display: block;
-    height: 75%;
-}
-.main_menu_a {
-    padding: 5%;
-    top:12%;
-    margin-bottom:4%;
-    margin-right: 5%;
-}
-.main_menu_a li {
-    list-style: none;
-    text-decoration: none;
-    font-size: normal;
-    margin-top: 2%;
+    margin-left: 15%;
+    padding-top: 5%;
     margin-bottom: 2%;
 }
-.main_menu_a li a  {
+
+.logo a {
     text-decoration: none;
-    padding: 1%;
-    margin:1%;
+    color: inherit;
+}
+  
+/* height of logo + height of bottom container */
+.menu-container {
+    height: calc(100% - 35%); 
+    overflow-y: scroll;  
+}
+  
+/* postition and styles for top menu */
+.menu-a {
+    position: relative;
+    margin-left:5%;
+    margin-right:5%;  
+}
+.menu-a li a {
     font-weight: bold;
-    font-size: normal;
-    color: black;
-}
-.main_menu_a a.active {
-    color:#ff0000;
-}
-.main_menu_a a:hover {
-    color:#ff0000;
-}
+    font-family: Arial;
+  }
 .fa {
     font-size: large;
-    margin: 4%;
+    margin: 5%;
 }
-.main_menu_b {
-    border-top:1px solid grey;
-    margin-left:5%;
-    margin-right:5%;
-    padding: 5%;
-	margin-top: 2%;
-    margin-bottom: 2%;
+/* styles for dropdowns */
+.menu-d li a {
+    font-weight: normal;
+    margin-left: 16%;
+    font-size: 80%; /* or any desired font size */
+    white-space: nowrap;
+    font-family: Arial;
 }
-.main_menu_b li {
+/* position and styles for bottom menu */
+.menu-b {
+    border-top:1px solid rgb(200, 200, 200);
+    margin-top:5%;
+	padding-top:5%;
+}
+.menu-b li a {
+    font-weight: normal;
+    margin-left: 4%;
+    font-family: Arial;
+}
+/* settings for menus */
+.menu {
     list-style: none;
-    text-decoration: none;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    padding: 2%;
+    margin: 0;
+    white-space: nowrap;
+    font-family: Arial;
 }
-.main_menu_b li a {
+.menu li a {
+    text-decoration: none;
     color: black;
     font-size: small;
-    font-weight: normal;
-    text-decoration: 0;
-    margin-left:0;
+    margin-top: 2%;
+	margin-bottom: 2%;
+    font-family: Arial;
 }
-.main_menu_b a.active {
-    color:#ff0000;
-}
-.main_menu_b a:hover {
-    color:#ff0000;
-}
-.profil-btn {
-    position: relative;
-    bottom: 0;
-    height: 14%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    width: 100%;
-}
-.profil-btn .fa{
-    font-size: xx-large;
+.menu a:hover {
     color: red;
-    cursor: pointer;
-    margin: 4%;
+  }
+.menu a.active {
+    color: red;
 }
-.profil-btn a {
-    color: black;
-    font-size: medium;
-    text-decoration: none;
-    font-weight: bold;
+.menu li.active a {
+    color: red;
 }
 
-.profil-btn :hover{
-    color: red;
+/* settings for logged in user */
+.menu-c {
+    border-top:1px solid rgb(200, 200, 200);
+    background-color:white;
+    padding-top:5%;
+    font-family: Arial;
+}
+
+/* position bottom container and buttons */
+.bottom-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 8%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+/* bottom left button - Moj profil */
+.bottom-left {
+    width: 85%;
+    height: 100%;
+    background-color: #fff;
+    padding-bottom: 10%;
+}
+.bottom-left .fa{
+		font-size: xx-large;
+		color: red;
+		cursor: pointer;
+		margin: 4%;
+}
+.bottom-left a {
+		color: black;
+		font-size: medium;
+		text-decoration: none;
+		font-weight: bold;
+}
+  	
+/* user menu button and close */
+.bottom-right {
+    height: 100%;
+    background-color: white;
+    padding-bottom: 8%;
+}
+.bar1, .bar2, .bar3 {
+	width: 20px;
+	height: 5px;
+	background-color: rgb(128, 128, 128);
+	margin: 6px 0;
+	transition: 0.4s;
+}
+	
+.change .bar1 {
+	transform: translate(0, 11px) rotate(-45deg);
+}
+	
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+	transform: translate(0, -11px) rotate(45deg);
+}
+/* user menu */
+.overlay-menu {
+	position: fixed;
+    height: 70%;
+	width: 20%;
+	background-color: white;
+	z-index: 1;
+	left: -20%;
+	transition: 0.4s;
+    top:18%;
+    list-style: none;
+    overflow-y: scroll;
+}
+
+.overlay-menu li{
+    margin: 3%;
+}
+.overlay-menu li a {
+    text-decoration: none;
+    color: black;
+    font-size: small;
+    margin:5%;
+    font-weight: bold;
+}
+.overlay-menu :hover {
+	color: red;
+}
+.overlay-menu.open {
+	left: 0;
+    height: 70%;
+    top:18%;
 }

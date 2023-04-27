@@ -2,7 +2,18 @@ from django.shortcuts import render, redirect  # For Render and Redireting to Fu
 from .models import Menu
 from .forms import MenuForm
 
-# Create your views here.
+def dropdowns(request, menuid):
+    menus = Menu.objects.filter(menuid=menuid)
+    return render(request, 'dropdowns.html', {'menus': menus})
+
+def bottom_divs(request, menuid):
+    menus = Menu.objects.filter(menuid=menuid)
+    return render(request, 'bottom_divs.html', {'menus': menus})
+
+def menu_list(request, menuid):
+    menus = Menu.objects.filter(menuid=menuid)
+    return render(request, 'menu_list.html', {'menus': menus})
+
 def MenuList(request):
     menu = Menu.objects.all();  # Create Object of Menu Class Model
     params = {'menues': menu}  # Create Parameter to Send To View
@@ -14,7 +25,6 @@ def CreateMenu(request):
         form.save()
         return redirect('MenuList')
     return render(request, 'MenuForm.html', {'form': form})
-
 
 def UpdateMenu(request, id):
     menu = Menu.objects.get(id=id)
