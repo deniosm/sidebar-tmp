@@ -54,7 +54,7 @@
 /* height of logo + height of bottom container */
 .menu-container {
     height: calc(100% - 35%); 
-    overflow-y: scroll;  
+    overflow-y: scroll;
 }
   
 /* postition and styles for top menu */

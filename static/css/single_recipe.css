@@ -1,0 +1,190 @@
+body{
+    display:flex;
+    width: 100%;
+}
+.sidebar_ex{
+    width:20%;
+    background-color: blue;
+    height:100vh;
+    position:sticky;
+    top:0;
+}
+.single_recipe_wrapper{
+    width:80%;
+    background: url("/static/images/mainbg.svg")
+}
+/* START RECIPES*/
+.single_recipe_head{
+    width:100%;
+    display:flex;
+    position: relative;
+}
+
+.single_recipe_details{
+    width: 40%;
+    z-index: 1;
+    padding-top:90px;
+}
+.single_recipe_position{
+    position:absolute;
+    /* background-color: blue; */
+    left:60px;
+    width:inherit;
+}
+
+.single_recipe_user{
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+
+.single_recipe_user_image img{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+
+.single_recipe_title{
+    background-color: var(--primary-color);
+    color:white;
+    font-size: 27px;
+    margin: 15px 0;
+    padding:8px 16px;
+    width:auto;
+}
+
+.single_recipe_icons{
+    display:flex;
+    gap: 15px;
+    font-size: 12px;
+}
+.single_recipe_icons svg{
+    margin-bottom:-2px;
+    margin-right:2px;
+}
+
+
+
+.single_recipe_media{
+    width:60%;
+    height:430px;
+    z-index: 0;
+}
+
+.single_recipe_media img{
+    width:100%;
+    height:430px;
+    object-fit: cover;
+}
+
+.single_recipe_body{
+    display:flex;
+    align-items: center;
+}
+
+.single_recipe_save{
+    width:40%;
+    padding-right:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single_recipe_save button{
+    height:40px;
+    background-color: var(--primary-color);
+    color:white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.8rem 2rem 0.9rem;
+    font-weight: bold;
+}
+
+.single_recipe_save svg{
+    margin-bottom:-2px;
+}
+
+.single_recipe_description{
+    padding:30px;
+    width:60%;
+    background-color: var(--description-color);
+    color:white;
+    font-weight:400;
+    font-size:18px;
+}
+
+
+
+/* ------------- INGREDIENTS-------------- */
+
+.steps_ingredients_wrapper{
+    display:flex;
+    margin-top:60px;
+    font-size: 27px;
+}
+
+.ingredients_wrapper{
+    width:40%;
+    margin-left:60px;
+    /* padding-right:30px; */
+    
+}
+.ingredients_wrapper h2{
+    position:sticky;
+    top:10%;
+
+}
+
+.ingredients_list{
+    overflow-y: scroll;
+    height:70vh;
+    /* top:30%; */
+    /* height:26%; */
+    /* position:sticky;
+    top:20%; */
+}
+
+.steps_wrapper{
+    width:60%;
+    padding-left:90px;
+    overflow: scroll;
+}
+
+
+.ingredients_list ul{
+    list-style: none;
+    text-decoration: none;
+    font-size:16px;
+}
+
+.ingredients_list li{
+    margin-top:20px;
+}
+
+
+.ingredients_separator{
+    /* background-image: url("/static/images/separator.svg"); */
+    width:0.3125rem;
+    height:100%;
+    background-color: red;
+    content: '';
+}
+
+.steps_group{
+    /* background-color: red; */
+    display:flex;
+    margin:20px 0;
+}
+
+.steps_order{
+    background-color: yellow;
+    height: 40px;
+    padding:5px 10px 5px 5px;
+    font-weight: bolder;
+    font-size:18px;
+}
+
+.steps_text{
+    font-size:18px;
+    margin-left:-5px;
+}

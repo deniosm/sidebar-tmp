@@ -1,0 +1,11 @@
+*{
+    margin:0;
+    padding:0;
+
+}
+:root{
+    --primary-color:#FE000c;
+    --secondary-color: #BCBDC0;
+    --description-color:rgb(192, 116, 38);
+    font-family: 'Roboto', sans-serif;
+}

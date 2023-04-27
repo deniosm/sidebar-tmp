@@ -1,5 +1,4 @@
 from django.apps import AppConfig
 
-
-class FirstappConfig(AppConfig):
+class MenuAappConfig(AppConfig):
     name = 'MenuA'

@@ -1,0 +1,25 @@
+###### First :
+
+python3 manage.py createsuperuser
+
+##### Second :
+
+python3 manage.py runserver
+
+#### Third :
+#### Open browser and go to : 
+
+http://127.0.0.1:8000/
+
+#### And press the button or icon in the lower left corner "Moj profil" . This will take you to the admin/login page . 
+#### The same result is obtained if you immediately enter the url :
+
+http://127.0.0.1:8000/admin
+
+#### Now by clicking on "Menus" you can edit whatever you want: icons, menu names, urls, etc 
+#### If you want to see what the sidebar looks like for authenticated users, enter the url: 
+
+http://127.0.0.1:8000/
+
+#### Or from django-admin select "View site"
+#### Registered users have an additional menu at the bottom of which is the logout option. You open and close this menu on the menu bars next to the "My Profile" button.

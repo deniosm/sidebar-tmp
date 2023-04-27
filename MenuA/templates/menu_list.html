@@ -8,7 +8,7 @@
                         <i class="{{menu.icon}}"></i>{{menu.title}}
                     </a>
                 </li>
-                {% if forloop.counter == 3 %}
+                {% if forloop.counter == 2 %}
                     {% if request.path == '/inspiracija/' %}
                             <div class="menu-d">
                                 {% for sub_menu in menues %}
@@ -21,7 +21,7 @@
                             </div>
                     {% endif %}
                 {% endif %}
-                {% if forloop.counter == 4 %}
+                {% if forloop.counter == 3 %}
                     {% if request.path == '/recepti/' %}
                             <div class="menu-d">
                                 {% for sub_menu in menues %}
@@ -34,7 +34,7 @@
                             </div>
                     {% endif %}
                 {% endif %}
-                {% if forloop.counter == 7 %}
+                {% if forloop.counter == 6 %}
                     {% if request.path == '/slike/' %}
                             <div class="menu-d">
                                 {% for sub_menu in menues %}
@@ -47,7 +47,7 @@
                             </div>
                     {% endif %}
                 {% endif %}
-                {% if forloop.counter == 8 %}
+                {% if forloop.counter == 7 %}
                     {% if request.path == '/blog/' %}
                             <div class="menu-d">
                                 {% for sub_menu in menues %}
@@ -60,7 +60,7 @@
                             </div>
                     {% endif %}
                 {% endif %}
-                {% if forloop.counter == 9 %}
+                {% if forloop.counter == 8 %}
                     {% if request.path == '/ljudi/' %}
                             <div class="menu-d">
                                 {% for sub_menu in menues %}
