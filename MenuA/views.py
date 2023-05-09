@@ -44,3 +44,23 @@ def DeleteMenu(request, id):
 
 def Search(request,text):
     menu=Menu.objects.filter()
+
+def Inspiracija(request):
+    menu = Menu.objects.all()
+    context = {'menues': menu}
+    return render(request, 'inspiracija.html', context)
+
+def Ideje(request):
+    menu = Menu.objects.all()
+    context = {'menues': menu}
+    return render(request, 'inspiracija/ideje.html', context)
+
+def CistImirisanDom(request):
+	menu = Menu.objects.all()
+	context = {'menues': menu}
+	return render(request, 'inspiracija/cist-i-mirisan-dom.html', context)
+
+def MimaKuhinjeZaVasDom(request):
+	menu = Menu.objects.all()
+	context = {'menues': menu}
+	return render(request, 'inspiracija/mima-kuhinje-za-vas-dom.html', context)
