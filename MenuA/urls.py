@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import CreateMenu,UpdateMenu,DeleteMenu,MenuList
+from .views import CreateMenu,UpdateMenu,DeleteMenu,MenuList,Inspiracija,Ideje
+from .views import CistImirisanDom,MimaKuhinjeZaVasDom
+from . import views
 
 urlpatterns=[
     path('',MenuList,name='MenuList'),
@@ -7,10 +9,10 @@ urlpatterns=[
     path('update/<int:id>',UpdateMenu,name='UpdateMenu'),
     path('delete/<int:id>',DeleteMenu,name='DeleteMenu'),
     path('naslovnica/', MenuList, name='Naslovnica'),
-    path('inspiracija/', MenuList, name='Inspiracija'),
-    path('inspiracija/ideje', MenuList, name='InspiracijaIdeje'),
-    path('inspiracija/cist-i-miran-dom', MenuList, name='InspiracijaCistImiranDom'),
-    path('inspiracija/mima-kuhinje-za-vas-dom', MenuList, name='InspiracijaMimaKuhinjeZaVasDom'),
+    path('inspiracija/', Inspiracija, name='Inspiracija'),
+    path('inspiracija/ideje', Ideje, name='InspiracijaIdeje'),
+    path('inspiracija/cist-i-mirisan-dom', CistImirisanDom, name='InspiracijaCistImirisanDom'),
+    path('inspiracija/mima-kuhinje-za-vas-dom', MimaKuhinjeZaVasDom, name='InspiracijaMimaKuhinjeZaVasDom'),
     path('recepti/', MenuList, name='Recepti'),
     path('recepti/novi', MenuList, name='ReceptiNovi'),
     path('recepti/popularni', MenuList, name='ReceptiPopularni'),
