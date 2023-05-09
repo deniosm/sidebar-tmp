@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Coolinarika</title>
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/inspiracija.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/menux.js' %}"></script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo">
+    {% for menu in menues %}
+      {% if menu.menuid == "logo" %}
+        <a href="{{ menu.url }}">
+          <img src="{% static menu.logo %}" alt="logo">
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="menu-container">
+    {% include 'menu_list.html' %}
+  </div>
+  <div class="bottom-container">
+    {% include 'bottom_divs.html' %}
+  </div>
+</div>
+<div class="red-line"></div>
+<!-- home section starts  -->
+    <section class="home" id="home" style="background: url({% static 'img/mimakuhinje.webp' %}) center/cover;">
+        <div class="content">
+            <h3>Mima kuhinje za vaš dom</h3>
+            <p>Namještaj Mima - kuhinje za vaš dom! Potražite inspiraciju uz vrhunske Mima kuhinje i svoj idealan stil kuhinje: industrijski, klasičan, minimalistički, naturalni, elegantan ili klasičan!</p>
+        </div>
+    </section>
+<!-- home section ends -->
+
+<!-- section starts  -->
+<section class="features" id="features">
+    <div class="box-container">
+        <a href="https://www.coolinarika.com/blog/coolinarika/pogledajte-divne-minimalisticke-kuhinje-koje-slijede-pravilo-manje-je-vise-7e1b2d04-6400-11ed-86b9-32b062f224ed">
+            <div class="box" style="background: url({% static 'img/clanak1.webp' %})">
+                <h3>Članak</h3>
+                <p>Pogledajte divne minimalističke kuhinje koje slijede pravilo ‘’manje je više’’</p>
+            </div>
+        </a>
+
+        <div class="box" style="background: url({% static 'img/clanak2.webp' %})">
+            <h3>Članak</h3>
+            <p>Elegancija po vašoj mjeri: Otkrijte kako postići luksuzan izgled kuhinje</p>
+        </div>
+</section>
+<!-- section starts  -->
+
+<!-- section starts  -->
+    <section class="features" id="features">
+        <div class="box-container">
+            <div class="box" style="background: url({% static 'img/clanak3.webp' %})">
+			  <h3>Članak</h3>
+			  <p>Kuhinje u industrijskom stilu kao odabir za one odvažne - jeste li među njima?</p>
+			</div>
+
+            <div class="box" style="background: url({% static 'img/clanak4.webp' %})">
+                <h3>Članak</h3>
+                <p>Šest modela kuhinja i šest različitih stilova – koji vibirate?</p>
+            </div>
+
+            <div class="box" style="background: url({% static 'img/clanak5.webp' %})">
+                <h3>Članak</h3>
+                <p>Pogledajte kako nastaje kuhinja! Ovdje svaka kuhinja postaje funkcionalno remek djelo!</p>
+            </div>
+    </section>
+<!-- section ends  -->
+
+<!-- footer  start -->
+<div class="footer" style="background-image: url({% static 'img/footer.png' %});"></div>
+<!-- footer  end -->
+</body>
+</html>
