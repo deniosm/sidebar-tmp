@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Menu
-from .forms import MenuForm
+from .models import Inspiracija
 
 def dropdowns(request, menuid):
     menus = Menu.objects.filter(menuid=menuid)
@@ -15,45 +15,91 @@ def menu_list(request, menuid):
     return render(request, 'menu_list.html', {'menus': menus})
 
 def MenuList(request):
-    menu = Menu.objects.all();  # Create Object of Menu Class Model
-    params = {'menues': menu}  # Create Parameter to Send To View
-    return render(request, 'Menues.html', params)  # Return Menues To The Html Page
+    menu = Menu.objects.all();
+    params = {'menues': menu} 
+    return render(request, 'Menues.html', params)
+###############################
+###############################
 
-def CreateMenu(request):
-    form = MenuForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('MenuList')
-    return render(request, 'MenuForm.html', {'form': form})
-
-def UpdateMenu(request, id):
-    menu = Menu.objects.get(id=id)
-    form = MenuForm(request.POST or None, instance=menu)
-    if form.is_valid():
-        form.save()
-        return redirect('MenuList')
-    return render(request, 'MenuForm.html', {'form': form, 'menu': menu})
-
-
-def DeleteMenu(request, id):
-    menu = Menu.objects.get(id=id)
-    if request.method == 'POST':
-        menu.delete()
-        return redirect('MenuList')
-    return render(request, 'DeleteConfirm.html', {'menu': menu})
-
-def Search(request,text):
-    menu=Menu.objects.filter()
-
-def Inspiracija(request):
+def InspiracijaAll(request):
     menu = Menu.objects.all()
-    context = {'menues': menu}
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues': menu,'inspiracijaes':inspiracija}
     return render(request, 'inspiracija.html', context)
 
+def InspirirajteSeJagodama(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/inspirirajte-se-jagodama.html', context)
+
+def Kadulja(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/kadulja.html', context)
+
+def Kaduljaz(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/kaduljaz.html', context)
+
+def LjubavNaTanjuru(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/ljubav-na-tanjuru.html', context)
+
+def LjubavZaStolom(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/ljubav-za-stolom.html', context)
+
+def Pavlova(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/pavlova.html', context)
+
+def TrznicePuneOkusaiVitamina(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/svijet-bilja-i-zacina.html', context)
+
+def SvijetBiljaIzacina(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/trznice-pune-okusa-i-vitamina.html', context)
+
+def ZalfijaKadulja(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/zalfija-kadulja.html', context)
+
+def SpinatNasZeleniPrijatelj(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues':menu,'inspiracijaes':inspiracija}
+    return render (request, 'inspiracija/ideje/spinat-nas-zeleni-prijatelj.html', context)
+
+################################
+################################
 def Ideje(request):
     menu = Menu.objects.all()
-    context = {'menues': menu}
-    return render(request, 'inspiracija/ideje.html', context)
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues': menu,'inspiracijaes':inspiracija}
+    return render(request, 'ideje.html', context)
+
+def Section(request):
+    menu = Menu.objects.all()
+    inspiracija = Inspiracija.objects.all()
+    context = {'menues': menu,'inspiracijaes':inspiracija}
+    return render(request, 'section.html', context)
 
 def CistImirisanDom(request):
 	menu = Menu.objects.all()

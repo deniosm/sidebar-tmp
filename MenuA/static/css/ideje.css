@@ -32,7 +32,6 @@ html {
 .header-container{
     margin-left: 21%;
     margin-top: 7%;
-    padding-left: 5rem;
 }
 .header{
     display: flex;
@@ -66,19 +65,20 @@ html {
 
 .home {
     position: relative;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 30rem;
-    padding-bottom: 20rem;
+    padding-top: 17rem;
+    padding-bottom: 10rem;
     margin-left: 21%;
 }
 
 .home .content {
     position: absolute;
-    top: 60%;
+    bottom: 0;
     left: 0;
     width: 60rem;
-	bottom: -15rem;
+	bottom: -5rem;
 	margin-left:5rem;
 }
 
@@ -88,16 +88,7 @@ html {
     font-size: 3rem;
     background-color:white;
 }
-.home .content h2 {
-    color: black;
-    text-align: center;
-    font-size: 2rem;
-    background-color:yellow;
-    display: inline-flex;
-    cursor: pointer;
-    width: auto;
-    margin-left: 1rem;
-}
+
 .home .content p {
     color: grey;
     font-size: 1.7rem;
@@ -108,10 +99,7 @@ html {
 }
 
 /*-------Home Section CSS ends---------------*/
-.idejesec {
-    margin-top: 18%;
-    margin-left: 3%;
-}
+
 /*---------Features section---------------------------*/
 
 .features .box-container {
@@ -127,7 +115,6 @@ html {
 .features .box-container .box {
 	padding: 3rem 2rem;
 	text-align: center;
-    margin-left: 10%;
     border-radius: 2rem;
 }
 
@@ -176,9 +163,9 @@ html {
 
 .ideje .ideje-box-container {
     display: inline-flex;
-    justify-content: space-between; 
+    justify-content: space-between; /* distribute items evenly along main axis */
     gap: 1.5rem;
-    margin: 8rem 0 0 25%; 
+    margin: 8rem 0 0 21%; /* adjusted margin */
 }
 
 .ideje .ideje-box-container .ideje-box {
@@ -187,7 +174,6 @@ html {
     height: 45rem;
     width: 30rem;
     border-radius: 2rem;
-    margin-left: 15%;
 }
 
 .ideje .ideje-box-container .ideje-box:hover {
@@ -219,7 +205,6 @@ html {
 
 /*-------------Ideje Section CSS ends ------------------*/
 
-
 /*-------------Footer Section CSS starts------------------*/
 
 .footer {
@@ -238,16 +223,6 @@ html {
 @media (max-width:991px) {
     html {
         font-size: 50%;
-    }
-    .header-container{
-        margin-left: 0;
-        padding-left: 0;
-        left: 0;
-    }
-    .header img{
-        margin-left: 0;
-        padding-left: 0;
-        left: 0;
     }
     .home{
     	margin-left:0;
@@ -270,16 +245,6 @@ html {
     html {
     	margin:0;
         font-size: 40%;
-    }
-    .header-container{
-        margin-left: 0;
-        padding-left: 0;
-        left: 0;
-    }
-    .header img{
-        margin-left: 0;
-        padding-left: 0;
-        left: 0;
     }
    .home {
    		margin-left:0;

@@ -1,259 +1,44 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Coolinarika</title>
-    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/inspiracija.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="{% static 'js/menux.js' %}"></script>
-</head>
-<body>
-<div class="sidebar">
-  <div class="logo">
-    {% for menu in menues %}
-      {% if menu.menuid == "logo" %}
-        <a href="{{ menu.url }}">
-          <img src="{% static menu.logo %}" alt="logo">
-        </a>
-      {% endif %}
-    {% endfor %}
-  </div>
-  <div class="menu-container">
-    {% include 'menu_list.html' %}
-  </div>
-  <div class="bottom-container">
-    {% include 'bottom_divs.html' %}
-  </div>
-</div>
+{% include 'Menues.html' %}
 <div class="red-line"></div>
 <!-- header  start -->
 <div class="header-container">
-	<div class="header">
-		<h1>Inspiracija</h1>
-		<img src="{% static 'img/footer.png' %}" alt="">
-	</div>
-    <div class="subtitle">
-    	<img src="{% static 'img/subtitle.png' %}" alt="">
-    	<h2>Pratimo što je trenutno popularno i u sezoni, te na temelju toga biramo istaknute teme i predlažemo ideje za razne prigode i situacije. Idealno kada ne znaš što bi i baš ti treba neka ideja da te pokrene...</h2>
+    <div class="header">
+      {% for inspiracija in inspiracijaes %}
+        {% if inspiracija.title %}
+            <h1>{{ inspiracija.inspiracijatitle }}</h1>
+        {% endif %}
+      {% endfor %}
+      <img src="{% static 'img/footer.png' %}" alt="">
     </div>
-</div>
+      <div class="subtitle">
+        <img src="{% static 'img/subtitle.png' %}" alt="">
+        {% for inspiracija in inspiracijaes %}
+            {% if inspiracija.title %}
+                <h2>{{inspiracija.subtitle}}</h2>
+            {% endif %}       
+        {% endfor %}
+      </div>
+  </div>
 <!-- header  end -->
-
 <!-- section starts  -->
+{% for inspiracija in inspiracijaes|slice:"1" %} 
 <section class="features" id="features">
-    <div class="box-container">
-        <a href="">
-            <div class="box" style="background-image: url({% static 'img/jagode.webp' %}); background-position: center; background-size: cover; width: 55rem; height: 35rem; position: relative;">
-              <h3 style="position: absolute; right:-20rem;word-wrap: wrap; top: 10rem;margin: 0; padding: 1rem; color:white;background-color: red;font-size: 3rem;">Inspirirajte se jagodama</h3>
+  {% if inspiracija.contenttitle %}
+    <div class="box-container">  
+            <a href="{{inspiracija.url}}">
+                <div class="box" style="background-image: url({% static inspiracija.contentpicturepath %}); background-position: center; background-size: cover; width: 55rem; height: 35rem; position: relative;">
+                <h3 style="position: absolute; right:-20rem;word-wrap: wrap; top: 10rem;margin: 0; padding: 1rem; color:white;background-color: red;font-size: 3rem;">{{inspiracija.contenttitle}}</h3>
             </div>
         </a>
     </div>
+  {% endif %}
 </section>
-<!-- section starts  -->
+{% endfor %} 
+<!-- section end  -->
 
-<!-- section starts  -->
-<section class="ideje" id="ideje">
-    <div class="ideje-box-container">
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje1.webp' %}) center/cover;">
-            <h3>Tema tjedna</h3>
-            <p>Ljubav za stolom</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje2.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Kruh naš svagdašnji: Miris s kojim započinje sretan dan</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje3.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Samo pašta i ništa više</p>
-            </div>
-        </a>
-    </div>
-</section>
-<!-- section ends  -->
-<!-- section starts  -->
-<section class="ideje" id="ideje">
-    <div class="ideje-box-container">
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje4.webp' %}) center/cover;">
-            <h3>Tema tjedna</h3>
-            <p>Tržnice pune okusa i vitamina</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje5.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Banane: Od smoothija do...</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje6.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Ljubav na tanjuru</p>
-            </div>
-        </a>
-    </div>
-</section>
-<!-- section ends  -->
-
-<!-- section starts  -->
-<section class="ideje" id="ideje">
-    <div class="ideje-box-container">
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje7.webp' %}) center/cover;">
-            <h3>Tema tjedna</h3>
-            <p>Kadulja</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje8.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Zalfija kadulja</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje9.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Kaduljaz</p>
-            </div>
-        </a>
-    </div>
-</section>
-<!-- section ends  -->
-
-<!-- section starts  -->
-<section class="ideje" id="ideje">
-    <div class="ideje-box-container">
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje10.webp' %}) center/cover;">
-            <h3>Tema tjedna</h3>
-            <p>Svijet bilja i začina</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje11.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Špinat naš zeleni prijatelj</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje12.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Pavlova</p>
-            </div>
-        </a>
-    </div>
-</section>
-<!-- section ends  -->
-
-<!-- section starts  -->
-<section class="ideje" id="ideje">
-    <div class="ideje-box-container">
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje13.webp' %}) center/cover;">
-            <h3>Tema tjedna</h3>
-            <p>Pavlovska</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje14.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>T pavlova</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje15.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Pavlova ružičasta</p>
-            </div>
-        </a>
-    </div>
-</section>
-<!-- section ends  -->
-
-<!-- section starts  -->
-<section class="ideje" id="ideje">
-    <div class="ideje-box-container">
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje16.webp' %}) center/cover;">
-            <h3>Tema tjedna</h3>
-            <p>Obrok iz čaše</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje17.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Tako lagano</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje18.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Prehranom do zdravlja</p>
-            </div>
-        </a>
-    </div>
-</section>
-<!-- section ends  -->
-
-<!-- section starts  -->
-<section class="ideje" id="ideje">
-    <div class="ideje-box-container">
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje19.webp' %}) center/cover;">
-            <h3>Tema tjedna</h3>
-            <p>Koliko nas ima</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje20.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Banane: Od smoothija do...</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje21.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Cous cous u kuhinji</p>
-            </div>
-        </a>
-    </div>
-</section>
-<!-- section ends  -->
-
-<!-- section starts  -->
-<section class="ideje" id="ideje">
-    <div class="ideje-box-container">
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje22.webp' %}) center/cover;">
-            <h3>Tema tjedna</h3>
-            <p>Jestivi podizači imuniteta</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje23.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Blago u zrnu</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="ideje-box" style="background: url({% static 'img/ideje24.webp' %}) center/cover;">
-                <h3>Tema tjedna</h3>
-                <p>Vege ima svoj dan</p>
-            </div>
-        </a>
-    </div>
-</section>
-<!-- section ends  -->
+{% include 'section.html' %}
 
 <!-- footer  start -->
 <div class="footer" style="background-image: url({% static 'img/footer.png' %});"></div>
 <!-- footer  end -->
-</body>
-</html>

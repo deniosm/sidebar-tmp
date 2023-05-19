@@ -1,18 +1,29 @@
 from django.urls import path
-from .views import CreateMenu,UpdateMenu,DeleteMenu,MenuList,Inspiracija,Ideje
+from .views import MenuList,InspiracijaAll,Ideje
 from .views import CistImirisanDom,MimaKuhinjeZaVasDom
-from . import views
+from .views import *
 
 urlpatterns=[
     path('',MenuList,name='MenuList'),
-    path('create',CreateMenu,name='CreateMenu'),
-    path('update/<int:id>',UpdateMenu,name='UpdateMenu'),
-    path('delete/<int:id>',DeleteMenu,name='DeleteMenu'),
     path('naslovnica/', MenuList, name='Naslovnica'),
-    path('inspiracija/', Inspiracija, name='Inspiracija'),
-    path('inspiracija/ideje', Ideje, name='InspiracijaIdeje'),
+    path('inspiracija/', InspiracijaAll, name='Inspiracija'),
+    path('inspiracija/ideje', InspiracijaAll, name='Ideje'),
+    path('inspiracija/', InspiracijaAll, name='Section'),
+##################################################################
+    path('inspiracija/ideje/inspirirajte-se-jagodama', InspirirajteSeJagodama, name='InspirirajteSeJagodama'),
+    path('inspiracija/ideje/kadulja', Kadulja,name='Kadulja'),
+    path('inspiracija/ideje/kaduljaz', Kaduljaz,name='Kaduljaz'),
+    path('inspiracija/ideje/ljubav-na-tanjuru', LjubavNaTanjuru,name='LjubavNaTanjuru'),
+    path('inspiracija/ideje/ljubav-za-stolom', LjubavZaStolom,name='LjubavZaStolom'),
+    path('inspiracija/ideje/pavlova', Pavlova,name='Pavlova'),
+    path('inspiracija/ideje/svijet-bilja-i-zacina', SvijetBiljaIzacina,name='SvijetBiljaIzacina'),
+    path('inspiracija/ideje/trznice-pune-okusa-i-vitamina', TrznicePuneOkusaiVitamina,name='TrznicePuneOkusaiVitamina'),
+    path('inspiracija/ideje/zalfija-kadulja', ZalfijaKadulja,name='ZalfijaKadulja'),
+    path('inspiracija/ideje/spinat-nas-zeleni-prijatelj', SpinatNasZeleniPrijatelj,name='SpinatNasZeleniPrijatelj'),
+##################################################################
     path('inspiracija/cist-i-mirisan-dom', CistImirisanDom, name='InspiracijaCistImirisanDom'),
     path('inspiracija/mima-kuhinje-za-vas-dom', MimaKuhinjeZaVasDom, name='InspiracijaMimaKuhinjeZaVasDom'),
+####################################################################    
     path('recepti/', MenuList, name='Recepti'),
     path('recepti/novi', MenuList, name='ReceptiNovi'),
     path('recepti/popularni', MenuList, name='ReceptiPopularni'),
