@@ -38,9 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base.apps.BaseConfig',
-    'MenuA',
 
+    'base.apps.BaseConfig',
 ]
 
 MIDDLEWARE = [
@@ -79,12 +78,12 @@ WSGI_APPLICATION = 'coolinarika.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'coolinarika',
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'coolinarika',  
         'USER': 'root',
         'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'localhost',  
+        'PORT': '3306',
     }
 }
 

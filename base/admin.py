@@ -1,3 +1,6 @@
+from .models import Menu
+from .models import Inspiracija
 from django.contrib import admin
 
-# Register your models here.
+admin.site.register(Menu)
+admin.site.register(Inspiracija)

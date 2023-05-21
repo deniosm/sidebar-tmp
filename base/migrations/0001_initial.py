@@ -16,6 +16,34 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Menu',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('menuid', models.CharField(max_length=15)),
+                ('url', models.CharField(max_length=50)),
+                ('title', models.CharField(max_length=50)),
+                ('icon', models.CharField(max_length=50)),
+                ('logo', models.CharField(max_length=50)),
+                ('avatar', models.CharField(max_length=50)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Inspiracija',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('url', models.CharField(max_length=50)),
+                ('inspiracijatitle', models.CharField(max_length=100)),
+                ('subtitle', models.CharField(max_length=1000)),
+                ('headerpicturepath', models.CharField(max_length=100)),
+                ('contentpicturepath', models.CharField(max_length=100)),
+                ('inspiracijaid', models.CharField(max_length=50)),
+                ('contentid', models.CharField(max_length=50)),
+                ('contenttitle', models.CharField(max_length=50)),
+                ('clanak', models.CharField(blank=True, max_length=50)),
+                ('title', models.CharField(blank=True, max_length=50)),
+            ],
+        ),
+        migrations.CreateModel(
             name='Recipe',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
