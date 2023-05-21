@@ -1,0 +1,31 @@
+{% load static %}
+{% include 'Menues.html' %}
+<div class="red-line"></div>
+
+<!-- home section starts  -->
+{% for inspiracija in inspiracijaes|slice:"1" %}
+    <section class="home" id="home" style="background: url({% static inspiracija.contentpicturepath %}) center/cover;">
+        <div class="content">
+            <h2><i class="fa fa-arrow-left"></i><a href="../">{{ inspiracija.inspiracijaid }}</a></h2>
+              <h3>{{ inspiracija.contenttitle }}</h3>
+            <p> {{ inspiracija.subtitle }}</p>
+        </div>
+    </section>
+{% endfor %}
+<!-- home section ends -->
+<div class="idejesec">
+	<div class="dropdown">
+		<button class="dropdown-btn">Popularno <i class="fa fa-angle-down"></i> </button>
+		<div class="dropdown-content">
+		    <a href="#">Popularno</a>
+		    <a href="/newest_instance">Najnovije</a>
+		    <a href="/oldest_instance">Najstarije</a>
+		</div>
+	</div>
+{% include 'section.html' %}
+</div>
+<!-- footer  start -->
+<div class="footer" style="background-image: url({% static 'img/footer.png' %});"></div>
+<!-- footer  end -->
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang=”en”>
+ <head>
+ <meta charset=”utf-8">
+</head>
+</head>
+<body>
+    <a href="{% url 'MenuList' %}" class="btn btn-primary">Back</a>
+<div class="col-md-5 col-md-offset-3">
+    <h3>Edit sidebar items</h3>
+</div>
+<div class="col-md-5 col-md-offset-3">
+</div>
+<div class="col-md-5 col-md-offset-3">
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table" border="1">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fields</th>
+            <th>Fill Data</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ form }}</td>
+            </tr>
+         </tbody>
+    </table>
+    <button class="btn btn-success" type="submit">Save</button>
+        {% if menu %}
+            <a href="{% url 'DeleteMenu' menu.id %}" class="btn btn-danger" type="submit">Delete</a>
+
+        {% endif %}
+    </form>
+</div>
+</body>
+</html>

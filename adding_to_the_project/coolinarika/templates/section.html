@@ -1,0 +1,52 @@
+{% load static %}
+
+<!-- section starts  -->
+<section class="ideje" id="ideje">
+    <div class="ideje-box-container">
+        {% for inspiracija in inspiracijaes|slice:"1:5" %}
+            {% if inspiracija.contentid %}
+                <a href="{{inspiracija.url}}">
+                <div class="ideje-box" style="background: url('{% static inspiracija.contentpicturepath %}') center/cover;">
+                    <h3>{{inspiracija.contentid}}</h3>
+                    <p>{{inspiracija.contenttitle}}</p>
+                </div>
+                </a>
+                {% endif %}
+          {% endfor %}
+    </div>
+</section>
+<!-- section ends  -->
+
+<!-- section starts  -->
+<section class="ideje" id="ideje">
+    <div class="ideje-box-container">
+        {% for inspiracija in inspiracijaes|slice:"5:8" %}
+            {% if inspiracija.contentid %}
+                <a href="{{inspiracija.url}}">
+                <div class="ideje-box" style="background: url('{% static inspiracija.contentpicturepath %}') center/cover;">
+                    <h3>{{inspiracija.contentid}}</h3>
+                    <p>{{inspiracija.contenttitle}}</p>
+                </div>
+                </a>
+                {% endif %}
+          {% endfor %}
+    </div>
+</section>
+<!-- section ends  -->
+
+<!-- section starts  -->
+<section class="ideje" id="ideje">
+    <div class="ideje-box-container">
+        {% for inspiracija in inspiracijaes|slice:"8:11" %}
+            {% if inspiracija.contentid %}
+                <a href="{{inspiracija.url}}">
+                <div class="ideje-box" style="background: url('{% static inspiracija.contentpicturepath %}') center/cover;">
+                    <h3>{{inspiracija.contentid}}</h3>
+                    <p>{{inspiracija.contenttitle}}</p>
+                </div>
+                </a>
+                {% endif %}
+          {% endfor %}
+    </div>
+</section> 
+<!-- section ends  -->

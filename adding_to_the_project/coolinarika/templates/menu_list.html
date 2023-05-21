@@ -1,0 +1,106 @@
+{% load static %}
+<div class="menu-a">
+    <div class="menu">
+        {% for menu in menues %}
+            {% if menu.menuid == "main" %}
+                <li>
+                    <a href="{{ menu.url }}">
+                        <i class="{{menu.icon}}"></i>{{menu.title}}
+                    </a>
+                </li>
+                {% if forloop.counter == 2 %}
+                    {% if request.path == '/inspiracija/' %}
+                            <div class="menu-d">
+                                {% for sub_menu in menues %}
+                                    {% if sub_menu.menuid == "inspiracija" %}
+                                    <li>  <a href="{{ sub_menu.url }}">
+                                            <i class="{{sub_menu.icon}}"></i>{{sub_menu.title}}
+                                        </a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                    {% endif %}
+                {% endif %}
+                {% if forloop.counter == 3 %}
+                    {% if request.path == '/recepti/' %}
+                            <div class="menu-d">
+                                {% for sub_menu in menues %}
+                                    {% if sub_menu.menuid == "recepti" %}
+                                    <li>  <a href="{{ sub_menu.url }}">
+                                            <i class="{{sub_menu.icon}}"></i>{{sub_menu.title}}
+                                        </a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                    {% endif %}
+                {% endif %}
+                {% if forloop.counter == 6 %}
+                    {% if request.path == '/slike/' %}
+                            <div class="menu-d">
+                                {% for sub_menu in menues %}
+                                    {% if sub_menu.menuid == "slike" %}
+                                    <li>  <a href="{{ sub_menu.url }}">
+                                            <i class="{{sub_menu.icon}}"></i>{{sub_menu.title}}
+                                        </a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                    {% endif %}
+                {% endif %}
+                {% if forloop.counter == 7 %}
+                    {% if request.path == '/blog/' %}
+                            <div class="menu-d">
+                                {% for sub_menu in menues %}
+                                    {% if sub_menu.menuid == "blog" %}
+                                    <li>  <a href="{{ sub_menu.url }}">
+                                            <i class="{{sub_menu.icon}}"></i>{{sub_menu.title}}
+                                        </a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                    {% endif %}
+                {% endif %}
+                {% if forloop.counter == 8 %}
+                    {% if request.path == '/ljudi/' %}
+                            <div class="menu-d">
+                                {% for sub_menu in menues %}
+                                    {% if sub_menu.menuid == "ljudi" %}
+                                    <li>  <a href="{{ sub_menu.url }}">
+                                            <i class="{{sub_menu.icon}}"></i>{{sub_menu.title}}
+                                        </a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% if user.is_authenticated %}
+    <div class="menu-c">
+        <div class="menu">
+        {% for menu in menues %}
+            {% if menu.menuid == "usermenu" %}
+                <li>
+                    <a href="{{ menu.url }}">
+                        <i class="{{menu.icon}}"></i>{{menu.title}}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+{% endif %}
+  <div class="menu-b">
+      <div class="menu">
+          {% for menu in menues %}
+          {% if menu.menuid == "bottom_menu" %}
+              <li>
+                  <a href="{{ menu.url }}">
+                      <i class="{{menu.icon}}"></i>{{menu.title}}
+                  </a>
+              </li>
+          {% endif %}
+      {% endfor %}
+      </div>
+</div>

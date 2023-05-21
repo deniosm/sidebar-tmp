@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm</title>
+</head>
+<body>
+</body>
+</html>
+<div class="col-md-5 col-md-offset-3">
+    <h3>Delete sidebar items</h3>
+</div>
+<div class="col-md-5 col-md-offset-3">
+<form method="POST">
+    {% csrf_token %}
+    <h3>Are You Sure To Delete</h3>
+    <h4>{{ menu.title }}</h4>
+    <button class="btn btn-success" type="submit">Confirm</button>
+</form>
+</div>
+</body>
+</html>

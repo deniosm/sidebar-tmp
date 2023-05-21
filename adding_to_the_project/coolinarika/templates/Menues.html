@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Coolinarika</title>
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/inspiracija.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/menux.js' %}"></script>
+    <script src="{% static 'js/sort.js' %}"></script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo">
+    {% for menu in menues %}
+      {% if menu.menuid == "logo" %}
+        <a href="{{ menu.url }}">
+          <img src="{% static menu.logo %}" alt="logo">
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="menu-container">
+    {% include 'menu_list.html' %}
+  </div>
+  <div class="bottom-container">
+    {% include 'bottom_divs.html' %}
+  </div>
+</div>

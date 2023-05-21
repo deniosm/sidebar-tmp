@@ -1,0 +1,46 @@
+{% load static %}
+{% include 'Menues.html' %}
+<div class="red-line"></div>
+<!-- header  start -->
+<div class="header-container">
+    <div class="header">
+      {% for inspiracija in inspiracijaes %}
+        {% if inspiracija.title %}
+            <h1>{{ inspiracija.inspiracijatitle }}</h1>
+        {% endif %}
+      {% endfor %}
+      <img src="{% static 'img/footer.png' %}" alt="">
+    </div>
+      <div class="subtitle">
+        <img src="{% static 'img/subtitle.png' %}" alt="">
+        {% for inspiracija in inspiracijaes %}
+            {% if inspiracija.title %}
+                <h2>{{inspiracija.subtitle}}</h2>
+            {% endif %}       
+        {% endfor %}
+      </div>
+  </div>
+<!-- header  end -->
+<!-- section starts  -->
+{% for inspiracija in inspiracijaes|slice:"1" %} 
+<section class="features" id="features">
+  {% if inspiracija.contenttitle %}
+    <div class="box-container">  
+            <a href="{{inspiracija.url}}">
+                <div class="box" style="background-image: url({% static inspiracija.contentpicturepath %}); background-position: center; background-size: cover; width: 55rem; height: 35rem; position: relative;">
+                <h3 style="position: absolute; right:-20rem;word-wrap: wrap; top: 10rem;margin: 0; padding: 1rem; color:white;background-color: red;font-size: 3rem;">{{inspiracija.contenttitle}}</h3>
+            </div>
+        </a>
+    </div>
+  {% endif %}
+</section>
+{% endfor %} 
+<!-- section end  -->
+<div class="idejesec">
+	{% include 'section.html' %}
+</div>
+<!-- footer  start -->
+<div class="footer" style="background-image: url({% static 'img/footer.png' %});"></div>
+<!-- footer  end -->
+</body>
+</html>
